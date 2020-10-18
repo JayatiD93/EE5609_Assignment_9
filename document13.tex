@@ -185,7 +185,7 @@ columns=fullflexible
 
 
 \begin{abstract}
-This is a simple document explaining how to express a system of equations by the linear combination of another system of equations.
+This is a simple document explaining how to express a matrix by the linear combination of the rows of another matrix.
 \end{abstract}
 
 %Download all python codes 
@@ -231,16 +231,16 @@ C = \myvec{1 & 1 & 0\\-4 & 0 & 0}
 \section{Solution}
 So, the matrix $C$ = $\myvec{1 & 1 & 0\\-4 & 0 & 0}$ such that $CA$=$B$.
 
-%\renewcommand{\theequation}{\theenumi}
-%\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
-%\numberwithin{equation}{enumi}
-%\item Verification of the above problem using python code.\\
-%\solution The  following Python code generates Fig. \ref{fig:hyperbola}
-%\begin{lstlisting}
-%codes/hyperbola_3.py
-%\end{lstlisting}
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Verification of the above problem using python code.\\
+\solution The  following Python code verifies the above solution.
+\begin{lstlisting}
+codes/multiplication_test.py
+\end{lstlisting}
 %%
-%\end{enumerate}
+\end{enumerate}
 
 \end{document}
 
