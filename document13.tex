@@ -213,59 +213,73 @@ Let the matrix $C$ is:
 C = \myvec{a_1 & b_1 & c_1\\a_2 & b_2 & c_2}
 \end{align}
 So, after multiplying with $A$ matrix we get,
-\begin{align}
+\begin{multline}
 \myvec{a_1 & b_1 & c_1\\a_2 & b_2 & c_2}\myvec{1 & -1\\2 & 2\\1 & 0} =\\ \myvec{a_1+2b_1+c_1 & -a_1+2b_1\\a_2+2b_2+c_2 & -a_2+2b_2}  
-\end{align}
-Now equating this result with matrix $B$:
+\end{multline}
+
+Matrix $A$ is a rectangular matrix, so pseodo inverse of matrix $A$ exists.
+Now, Considering $CA$ =$B$ and by transposing both side,
 \begin{align}
-\myvec{a_1+2b_1+c_1 & -a_1+2b_1\\a_2+2b_2+c_2 & -a_2+2b_2}=\myvec{3 & 1\\-4 & 4}\\
-\implies  a_1+2b_1+c_1= 3\\
-\implies  a_1+2b_1 = 3 - c_1\\
--a_1+2b_1 = 1\\
-\implies \myvec{1 & 2\\-1 & 2}\myvec{a_1\\b_1} = \myvec{3 - c_1\\1} 
+(CA)^T = B^T\\
+\implies A^T C^T = B^T\\
+\implies P C^T = B^T\\
+\implies P^T P C^T = B^T\\
+\implies C^T = (P^T P)^{-1} B^T
 \end{align}
-Now, considering these two equations the augmented matrix is formed as:
-\begin{align}
-\myvec{1 & 2 & (3 - c_1)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (3 - c_1)\\0 & 4 & (4-c_1)}\\
-\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (3 - c_1)\\0 & 2 & \frac{4-c_1}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
-\myvec{1 & 0 & \frac{2-c_1}{2}\\0 & 1 & \frac{4-c_1}{4}}\\
-\implies a_1 = \frac{2-c_1}{2}\\
- b_1 = \frac{4-c_1}{4}
-\end{align}
-Now depending on the value of $c_1$, the values of $a_1$ and $b_1$ will be calculated.
-Let $c_1$ = 4, then $a_1$ = -1 and $b_1$=0.
-Similarly,
-\begin{align}
-a_2+2b_2+c_2 = -4\\
-\implies a_2+2b_2 = -4 -c_2\\
--a_2+2b_2 = 4
-\implies \myvec{1 & 2\\-1 & 2}\myvec{a_2\\b_2} = \myvec{-4 -c_2\\4}
-\end{align}
-Now, considering these two equations the augmented matrix is formed as:
-\begin{align}
-\myvec{1 & 2 & (-4 -c_2)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (-4 -c_2)\\0 & 4 & -c_2}\\
-\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (-4 -c_2)\\0 & 2 & -\frac{-c_2}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
-\myvec{1 & 0 & -4-\frac{c_2}{2}\\0 & 1 & -\frac{c_2}{4}}\\
-\implies a_2 = -4-\frac{c_2}{2}\\
- b_2 = -\frac{c_2}{4}
-\end{align}
-Now depending on the value of $c_2$, the values of $a_2$ and $b_2$ will be calculated.
-Let $c_2$ = 4, then $a_2$ = -6 and $b_2$=-1.
+ where $P$ = $A^T$.
+But $\det(P^T P) = 0$
 
 
-\section{Solution}
-So, it can be oserved that matrix $C$ exists and depending on the $c_1$ and $c_2$ values different $C$ matrix can be generated. One of the $C$ matrix is = $\myvec{-1 & 0 & 4\\-6 & -1 & 4}$ such that $CA$=$B$.
-
-\renewcommand{\theequation}{\theenumi}
-\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
-\numberwithin{equation}{enumi}
-\item Verification of the above problem using python code.\\
-\solution The  following Python code verifies the above solution.
-\begin{lstlisting}
-codes/multiplication_test.py
-\end{lstlisting}
-%%
-\end{enumerate}
+%Now equating this result with matrix $B$:
+%\begin{align}
+%\myvec{a_1+2b_1+c_1 & -a_1+2b_1\\a_2+2b_2+c_2 & -a_2+2b_2}=\myvec{3 & 1\\-4 & 4}\\
+%\implies  a_1+2b_1+c_1= 3\\
+%\implies  a_1+2b_1 = 3 - c_1\\
+%-a_1+2b_1 = 1\\
+%\implies \myvec{1 & 2\\-1 & 2}\myvec{a_1\\b_1} = \myvec{3 - c_1\\1} 
+%\end{align}
+%Now, considering these two equations the augmented matrix is formed as:
+%\begin{align}
+%\myvec{1 & 2 & (3 - c_1)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (3 - c_1)\\0 & 4 & (4-c_1)}\\
+%\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (3 - c_1)\\0 & 2 & \frac{4-c_1}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
+%\myvec{1 & 0 & \frac{2-c_1}{2}\\0 & 1 & \frac{4-c_1}{4}}\\
+%\implies a_1 = \frac{2-c_1}{2}\\
+% b_1 = \frac{4-c_1}{4}
+%\end{align}
+%Now depending on the value of $c_1$, the values of $a_1$ and $b_1$ will be calculated.
+%Let $c_1$ = 4, then $a_1$ = -1 and $b_1$=0.
+%Similarly,
+%\begin{align}
+%a_2+2b_2+c_2 = -4\\
+%\implies a_2+2b_2 = -4 -c_2\\
+%-a_2+2b_2 = 4
+%\implies \myvec{1 & 2\\-1 & 2}\myvec{a_2\\b_2} = \myvec{-4 -c_2\\4}
+%\end{align}
+%Now, considering these two equations the augmented matrix is formed as:
+%\begin{align}
+%\myvec{1 & 2 & (-4 -c_2)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (-4 -c_2)\\0 & 4 & -c_2}\\
+%\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (-4 -c_2)\\0 & 2 & -\frac{-c_2}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
+%\myvec{1 & 0 & -4-\frac{c_2}{2}\\0 & 1 & -\frac{c_2}{4}}\\
+%\implies a_2 = -4-\frac{c_2}{2}\\
+% b_2 = -\frac{c_2}{4}
+%\end{align}
+%Now depending on the value of $c_2$, the values of $a_2$ and $b_2$ will be calculated.
+%Let $c_2$ = 4, then $a_2$ = -6 and $b_2$=-1.
+%
+%
+%\section{Solution}
+%So, it can be oserved that matrix $C$ exists and depending on the $c_1$ and $c_2$ values different $C$ matrix can be generated. One of the $C$ matrix is = $\myvec{-1 & 0 & 4\\-6 & -1 & 4}$ such that $CA$=$B$.
+%
+%\renewcommand{\theequation}{\theenumi}
+%\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
+%\numberwithin{equation}{enumi}
+%\item Verification of the above problem using python code.\\
+%\solution The  following Python code verifies the above solution.
+%\begin{lstlisting}
+%codes/multiplication_test.py
+%\end{lstlisting}
+%%%
+%\end{enumerate}
 
 \end{document}
 
