@@ -210,63 +210,46 @@ Is there any matrix $C$ such that $CA$ = $B$?
 The matrix $B$ is obtained by multiplying the matrix $A$ with matrix $C$. $B$ is a $2 \times 2$ matrix and $A$ is a $3 \times 2$ matrix. so matrix $C$ must be a $2 \times 3$ matrix.
 Let the matrix $C$ is:
 \begin{align}
-C = \myvec{a_1 & b_1 & c_1\\a_2 & b_2 & c_2}
+C = \myvec{a_1 & b_1 & c_1\\a_2 & b_2 & c_2}\\
+\implies C^T = \myvec{a_1 & a_2\\b_1 & b_2\\c_1 & c_2}
 \end{align}
 So, after multiplying with $A$ matrix we get,
 \begin{multline}
 \myvec{a_1 & b_1 & c_1\\a_2 & b_2 & c_2}\myvec{1 & -1\\2 & 2\\1 & 0} =\\ \myvec{a_1+2b_1+c_1 & -a_1+2b_1\\a_2+2b_2+c_2 & -a_2+2b_2}  
 \end{multline}
 
-Matrix $A$ is a rectangular matrix, so pseodo inverse of matrix $A$ exists.
+Matrix $A$ is a rectangular matrix.
 Now, Considering $CA$ =$B$ and by transposing both side,
 \begin{align}
 (CA)^T = B^T\\
 \implies A^T C^T = B^T\\
-\implies \myvec{1 & 2 & 1\\-1 & 2 & 0} \myvec{| & |\\c_1 & c_2\\| & |} = \myvec{3 & -4\\1 & 4}
+\implies \myvec{1 & 2 & 1\\-1 & 2 & 0} \myvec{| & |\\C_1 & C_2\\| & |} = \myvec{3 & -4\\1 & 4}
 \end{align}
-% where $P$ = $A^T$.
-%But $\det(P^T P) = 0$
-
-
-%Now equating this result with matrix $B$:
-%\begin{align}
-%\myvec{a_1+2b_1+c_1 & -a_1+2b_1\\a_2+2b_2+c_2 & -a_2+2b_2}=\myvec{3 & 1\\-4 & 4}\\
-%\implies  a_1+2b_1+c_1= 3\\
-%\implies  a_1+2b_1 = 3 - c_1\\
-%-a_1+2b_1 = 1\\
-%\implies \myvec{1 & 2\\-1 & 2}\myvec{a_1\\b_1} = \myvec{3 - c_1\\1} 
-%\end{align}
-%Now, considering these two equations the augmented matrix is formed as:
-%\begin{align}
-%\myvec{1 & 2 & (3 - c_1)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (3 - c_1)\\0 & 4 & (4-c_1)}\\
-%\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (3 - c_1)\\0 & 2 & \frac{4-c_1}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
-%\myvec{1 & 0 & \frac{2-c_1}{2}\\0 & 1 & \frac{4-c_1}{4}}\\
-%\implies a_1 = \frac{2-c_1}{2}\\
-% b_1 = \frac{4-c_1}{4}
-%\end{align}
-%Now depending on the value of $c_1$, the values of $a_1$ and $b_1$ will be calculated.
-%Let $c_1$ = 4, then $a_1$ = -1 and $b_1$=0.
-%Similarly,
-%\begin{align}
-%a_2+2b_2+c_2 = -4\\
-%\implies a_2+2b_2 = -4 -c_2\\
-%-a_2+2b_2 = 4
-%\implies \myvec{1 & 2\\-1 & 2}\myvec{a_2\\b_2} = \myvec{-4 -c_2\\4}
-%\end{align}
-%Now, considering these two equations the augmented matrix is formed as:
-%\begin{align}
-%\myvec{1 & 2 & (-4 -c_2)\\-1 & 2 & 1}\xleftrightarrow[]{R_2\leftarrow R_1+R_2}\myvec{1 & 2 & (-4 -c_2)\\0 & 4 & -c_2}\\
-%\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & (-4 -c_2)\\0 & 2 & -\frac{-c_2}{2}}\xleftrightarrow[R_2\leftarrow R_2/2]{R_1\leftarrow R_1-R_2}\\
-%\myvec{1 & 0 & -4-\frac{c_2}{2}\\0 & 1 & -\frac{c_2}{4}}\\
-%\implies a_2 = -4-\frac{c_2}{2}\\
-% b_2 = -\frac{c_2}{4}
-%\end{align}
-%Now depending on the value of $c_2$, the values of $a_2$ and $b_2$ will be calculated.
-%Let $c_2$ = 4, then $a_2$ = -6 and $b_2$=-1.
-%
-%
-%\section{Solution}
-%So, it can be oserved that matrix $C$ exists and depending on the $c_1$ and $c_2$ values different $C$ matrix can be generated. One of the $C$ matrix is = $\myvec{-1 & 0 & 4\\-6 & -1 & 4}$ such that $CA$=$B$.
+Where $C_1$ and $C_2$ are the column vectors of matrix $C$.
+Now, row redution operation is applied to the matrix $A^T$:
+\begin{multline}
+\myvec{1 & 2 & 1\\-1 & 2 & 0} \xleftrightarrow[]{R_2\leftarrow R_1+R_2} \myvec{1 & 2 & 1\\0 & 4 & 1}\\
+\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & 1\\0 & 2 & \frac{1}{2}}\xleftrightarrow[]{R_1\leftarrow R_1-R_2}\\
+\myvec{1 & 0 & \frac{1}{2}\\0 & 2 & \frac{1}{2}}\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}
+\end{multline}
+Now,
+\begin{align}
+\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{| & |\\C_1 & C_2\\| & |} = \myvec{3 & -4\\1 & 4}\\
+\implies \myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{a_1\\b_1\\c_1} = \myvec{3\\-1}\\
+\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{a_2\\b_2\\c_2} = \myvec{-4\\4}
+\end{align}
+Here $a_1,b_1,a_2,b_2$ are pivot variables but $c_1$ and $c_2$ are free variables. So the pivot variables can be expressed in terms of the free variables.
+So,
+\begin{align}
+a_1 = 3 - \frac{c_1}{2}\\
+b_1 = -1 - \frac{c_1}{4}\\
+a_2 = -4 - \frac{c_2}{2}\\
+b_2 = 4 - \frac{c_2}{4}
+\end{align}
+Now,
+\begin{align}
+C=\myvec{(3 - \frac{c_1}{2}) & (-1 - \frac{c_1}{4}) & c_1\\ (-4 - \frac{c_2}{2}) & (4 - \frac{c_2}{4}) & c_2}
+\end{align}
 %
 %\renewcommand{\theequation}{\theenumi}
 %\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
