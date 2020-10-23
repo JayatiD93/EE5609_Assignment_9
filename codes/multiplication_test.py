@@ -2,12 +2,12 @@ import numpy as np
 
 c1=int(input('Enter any value='))
 c2=int(input('Enter any value='))
-a1= (2-c1)/2
-b1=(4-c1)/4
-a2=-4-(c2/2)
-b2=-(c2/4)
-
-C = np.array([[a1,b1,c1],[a2,b2,c2]])
+M= np.array([[1,1,0],[-4,0,0]])
+P = c1*np.array([[-1/2,-1/4,1],[0,0,0]])
+print('P=',P)
+Q = c2*np.array([[0,0,0],[-1/2,-1/4,1]])
+print('Q=',Q)
+C=M+P+Q
 print('C=',C)
 A= np.array([[1,-1],[2,2],[1,0]])
 B= np.array([[3,1],[-4,4]])

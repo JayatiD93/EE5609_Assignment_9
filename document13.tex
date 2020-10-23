@@ -257,44 +257,21 @@ Now,
 \end{align}
 Now,
 \begin{align}
-C = \myvec{1 & -4\\1 & 0\\0 & 0}+c_1\myvec{-\frac{1}{2} & 0\\-\frac{1}{4} & 0\\1 & 0} + c_2\myvec{0 & -\frac{1}{2}\\0 & -\frac{1}{4}\\0 & 1}
+C^T = \myvec{1 & -4\\1 & 0\\0 & 0}+c_1\myvec{-\frac{1}{2} & 0\\-\frac{1}{4} & 0\\1 & 0} + c_2\myvec{0 & -\frac{1}{2}\\0 & -\frac{1}{4}\\0 & 1}\\
+\implies C = \myvec{1 & 1 & 0\\-4 & 0& 0} + c_1 \myvec{-\frac{1}{2} & -\frac{1}{4} & 1\\0 & 0 &0}\\
++c_2\myvec{0 & 0 &0\\-\frac{1}{2} & -\frac{1}{4} & 1}
 \end{align}
-%Where $C_1$ and $C_2$ are the column vectors of matrix $C$.
-%Now, row redution operation is applied to the matrix $A^T$:
-%\begin{multline}
-%\myvec{1 & 2 & 1\\-1 & 2 & 0} \xleftrightarrow[]{R_2\leftarrow R_1+R_2} \myvec{1 & 2 & 1\\0 & 4 & 1}\\
-%\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 2 & 1\\0 & 2 & \frac{1}{2}}\xleftrightarrow[]{R_1\leftarrow R_1-R_2}\\
-%\myvec{1 & 0 & \frac{1}{2}\\0 & 2 & \frac{1}{2}}\xleftrightarrow[]{R_2\leftarrow R_2/2}\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}
-%\end{multline}
-%Now,
-%\begin{align}
-%\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{| & |\\C_1 & C_2\\| & |} = \myvec{3 & -4\\1 & 4}\\
-%\implies \myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{a_1\\b_1\\c_1} = \myvec{3\\-1}\\
-%\myvec{1 & 0 & \frac{1}{2}\\0 & 1 & \frac{1}{4}}\myvec{a_2\\b_2\\c_2} = \myvec{-4\\4}
-%\end{align}
-%Here $a_1,b_1,a_2,b_2$ are pivot variables but $c_1$ and $c_2$ are free variables. So the pivot variables can be expressed in terms of the free variables.
-%So,
-%\begin{align}
-%a_1 = 3 - \frac{c_1}{2}\\
-%b_1 = -1 - \frac{c_1}{4}\\
-%a_2 = -4 - \frac{c_2}{2}\\
-%b_2 = 4 - \frac{c_2}{4}
-%\end{align}
-%Now,
-%\begin{align}
-%C=\myvec{(3 - \frac{c_1}{2}) & (-1 - \frac{c_1}{4}) & c_1\\ (-4 - \frac{c_2}{2}) & (4 - \frac{c_2}{4}) & c_2}
-%\end{align}
-%
-%\renewcommand{\theequation}{\theenumi}
-%\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
-%\numberwithin{equation}{enumi}
-%\item Verification of the above problem using python code.\\
-%\solution The  following Python code verifies the above solution.
-%\begin{lstlisting}
-%codes/multiplication_test.py
-%\end{lstlisting}
-%%%
-%\end{enumerate}
+Now, if we consider, $c_1$ =0 and $c_2$ =0, $C = \myvec{1 & 1 & 0\\-4 & 0& 0}$ and it satisfies the relation $CA=B$
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Verification of the above problem using python code.\\
+\solution The  following Python code verifies the above solution.
+\begin{lstlisting}
+codes/multiplication_test.py
+\end{lstlisting}
+%%
+\end{enumerate}
 
 \end{document}
 
